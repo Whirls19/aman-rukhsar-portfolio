@@ -2,9 +2,9 @@ import { useEffect, useRef, useState } from 'react';
 import FlexCarousel from './components/FlexCarousel';
 import { projects, items, skills } from './data';
 import './App.css';
-
+ 
 const B = import.meta.env.BASE_URL;
-const story = 'I started with a few lines of Java and a screen full of asterisks. Then I found a bell curve hiding inside chaos. Now I forecast markets, recommend courses and build dashboards that people actually use.'.split(' ');
+const story = 'I started with a few lines of Java and a terminal full of asterisks, and I have been chasing that feeling ever since: simple rules producing something with shape. In Principles of Data Science I met the Central Limit Theorem, a bell curve hiding inside chaos, and could not stop thinking about it. Since then I have built a course recommender on a cloud database, studied 211,218 crypto trades against market sentiment, and written a research paper on neural networks for forecasting markets. At PriyaQubit I turned messy data into dashboards that stakeholders could actually read. Now I want to understand why these methods work, not only how to run them.'.split(' ');
 const stats = [[8.35, 2, '/10', 'CGPA, First Class'], [8.0, 1, '', 'IELTS band'], [211218, 0, '', 'trades analysed'], [3600, 0, '+', 'courses in one recommender']];
 const steps = [
   ['2021', 'ICSE, 94%', 'Java was my first language, and the first program printed a triangle of asterisks.'],
@@ -13,7 +13,7 @@ const steps = [
   ['Nov 2025', 'Data Analyst Intern', 'PriyaQubit. SQL, Python, and dashboards in Power BI, Tableau, Looker Studio and Grafana.'],
   ['2026', 'BCA graduate, 8.35 CGPA', 'Eight projects shipped. Next stop: an MSc in Data Science.']
 ];
-
+ 
 function Count({ to, dec, suffix }) {
   const ref = useRef(); const [v, setV] = useState(0);
   useEffect(() => {
@@ -27,7 +27,7 @@ function Count({ to, dec, suffix }) {
   }, [to]);
   return <span ref={ref}>{v.toLocaleString('en-US', { minimumFractionDigits: dec, maximumFractionDigits: dec })}{suffix}</span>;
 }
-
+ 
 export default function App() {
   const [i, setI] = useState(0);
   const p = projects[i];
@@ -49,27 +49,27 @@ export default function App() {
     <>
       <i className="bar" />
       <nav className="nav"><b>AR</b><div><a href="#story">Story</a><a href="#journey">Journey</a><a href="#research">Research</a><a href="#work">Work</a><a href="#contact">Contact</a></div></nav>
-
+ 
       <section className="scene hero" id="top" style={{ height: '260vh' }}><div className="pin">
         <div className="orb o1" /><div className="orb o2" />
         <p className="eyebrow">Aman Rukhsar · Data Analyst</p>
         <h1>I turn raw data<br />into decisions.</h1>
         <p className="scroll">Scroll ↓</p>
       </div></section>
-
-      <section className="scene" id="story" style={{ height: '320vh' }}><div className="pin">
-        <p className="words">{story.map((w, k) => <span key={k} style={{ '--i': k }}>{w} </span>)}</p>
+ 
+      <section className="scene" id="story" style={{ height: '450vh' }}><div className="pin">
+        <p className="words" style={{ '--k': ((story.length * 1.05 + 1) / 0.9).toFixed(1) }}>{story.map((w, k) => <span key={k} style={{ '--i': k }}>{w} </span>)}</p>
       </div></section>
-
+ 
       <section className="stats">{stats.map(([n, d, s, l]) => (
         <div className="stat rv" key={l}><strong><Count to={n} dec={d} suffix={s} /></strong><span>{l}</span></div>
       ))}</section>
-
+ 
       <section className="scene" id="journey" style={{ height: '520vh' }}><div className="pin col">
         <h2 className="ttl">The journey</h2>
         <div className="track">{steps.map(([y, t, d]) => <article className="card" key={y}><small>{y}</small><h3>{t}</h3><p>{d}</p></article>)}</div>
       </div></section>
-
+ 
       <section className="scene" id="research" style={{ height: '300vh' }}><div className="pin split">
         <div className="rtext">
           <p className="eyebrow">Research</p>
@@ -83,16 +83,16 @@ export default function App() {
         </svg>
         <small className="note">Illustrative sketch, not real data.</small>
       </div></section>
-
+ 
       <section id="work" className="work">
         <h2>Selected work</h2>
         <p className="hint">Drag, scroll or use the arrow keys. Click the centre card to zoom.</p>
         <div className="stage"><FlexCarousel items={items} preset="liquid" intro="rise" cardHeight={0.5} fit="landscape" gap={12} onChange={setI} /></div>
         <div className="info" key={i}><p>{p.desc}</p><a className="btn small" href={p.url} target="_blank" rel="noreferrer">View project ↗</a></div>
       </section>
-
+ 
       <div className="marquee"><div>{[...skills, ...skills].map((s, k) => <span key={k}>{s}</span>)}</div></div>
-
+ 
       <footer id="contact" className="contact">
         <h2 className="rv">Let's build something<br />with data.</h2>
         <div className="links rv">
@@ -104,3 +104,4 @@ export default function App() {
     </>
   );
 }
+ 
