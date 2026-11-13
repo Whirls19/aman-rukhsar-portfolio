@@ -19,10 +19,12 @@ jobs:
         with:
           node-version: 22
       - run: npm install
+        working-directory: portfolio-site
       - run: npm run build
+        working-directory: portfolio-site
       - uses: actions/upload-pages-artifact@v3
         with:
-          path: dist
+          path: portfolio-site/dist
   deploy:
     needs: build
     runs-on: ubuntu-latest
