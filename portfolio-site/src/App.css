@@ -22,7 +22,7 @@ section, footer { position:relative; z-index:1; }
 .stats { display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); gap:16px; max-width:1400px; margin:10vh auto 0; padding:0 4vw; }
 .stat { padding:36px 28px; border-radius:28px; background:linear-gradient(160deg,#141418,#0b0b0e); border:1px solid rgba(255,255,255,.07); display:flex; flex-direction:column; gap:8px; container-type:inline-size; }
 .stat strong { font-size:clamp(28px,19cqw,64px); white-space:nowrap; letter-spacing:-.04em; color:var(--acc); font-variant-numeric:tabular-nums; }
-.stat span { color:var(--mut); }
+.stat > span { color:var(--mut); }
 .rv { opacity:0; transform:translateY(40px); transition:opacity .9s, transform .9s cubic-bezier(.22,1,.36,1); }
 .rv.in { opacity:1; transform:none; }
 .stat:nth-child(2) { transition-delay:.1s; } .stat:nth-child(3) { transition-delay:.2s; } .stat:nth-child(4) { transition-delay:.3s; }
